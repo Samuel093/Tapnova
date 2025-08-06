@@ -1,22 +1,18 @@
  import { useEffect, useState } from "react";
  import Navbar from './components/Navbar';
- import Hero from './components/Hero';
+ import Hero from "./components/Hero";
  import Services from "./components/services/Services";
  import Testimonials from './components/Testimonials';
 import CaseStudies from "./components/CaseStudies";
 import GetDemoSection from "./components/GetDemoSection";
 import Footer from "./components/Footer";
 import  ContactPopup  from "./components/ContactPopup";
-import ScrollToTopButton from "./components/ScrollToTopButton"
-
-
-
-
-
-
+import ScrollToTopButton from "./components/ScrollToTopButton";
+import React, { Suspense } from "react";
 
 
 export default function App() {
+  const HeavyComponent = React.lazy(() => import("./components/HeavyComponent"));
   const [showContact, setShowContact] = useState(false)
   const [darkMode, setDarkMode] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -44,6 +40,10 @@ export default function App() {
      /> 
      <div>
      <Hero/>
+         {/* Show fallback while loading */}
+      <Suspense fallback={<div>Loading section...</div>}>
+        <HeavyComponent />
+      </Suspense>
      <Services/>
      <Testimonials/>
      <CaseStudies/>

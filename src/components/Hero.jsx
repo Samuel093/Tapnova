@@ -1,11 +1,10 @@
-// src/components/Hero.jsx
-import React from 'react';
+import React from 'react'
 import InfiniteLogoCarousel from "./InfiniteLogoCarousel";
 import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <section
+        <section
       id="hero"
       className="bg-gradient-to-br from-indigo-50 to-white dark:from-gray-900 dark:to-gray-800"
     >
@@ -38,9 +37,7 @@ const Hero = () => {
       </div>
 
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
-
-
+export default Hero
